@@ -1,6 +1,6 @@
 import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
 import { downloadContentBufferFromMessage } from '$support/whatsapp.support';
-import type { WAMessage } from '@whiskeysockets/baileys';
+import type { WAMessage } from 'baileys';
 import { Context, OnText, Socket, type SocketClient } from 'baileys-decorators';
 
 export class SticketToImage {

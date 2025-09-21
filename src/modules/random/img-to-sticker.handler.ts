@@ -1,6 +1,6 @@
 import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
 import { downloadContentBufferFromMessage } from '$support/whatsapp.support';
-import { jidNormalizedUser, type WAMessage } from '@whiskeysockets/baileys';
+import { jidNormalizedUser, type WAMessage } from 'baileys';
 import {
   Context,
   createGuard,

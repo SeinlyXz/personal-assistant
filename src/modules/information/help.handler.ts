@@ -1,5 +1,5 @@
 import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
-import type { WAMessage } from '@whiskeysockets/baileys';
+import type { WAMessage } from 'baileys';
 import type { SocketClient } from 'baileys-decorators';
 import { Context, OnText, Socket } from 'baileys-decorators';
 

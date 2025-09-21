@@ -1,7 +1,7 @@
 import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
 import { tiktokdl } from '$services/downloader/tiktok';
 import { firstValidData } from '$support/promise.support';
-import type { WAMessage } from '@whiskeysockets/baileys';
+import type { WAMessage } from 'baileys';
 import {
   Context,
   getMessageCaption,

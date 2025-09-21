@@ -3,7 +3,7 @@ import {
   jidNormalizedUser,
   type AnyMessageContent,
   type WAMessage,
-} from '@whiskeysockets/baileys';
+} from 'baileys';
 import { Context, OnText, Socket, type SocketClient } from 'baileys-decorators';
 
 export class AutoRevealViewOnceWhenQuotedAction {
