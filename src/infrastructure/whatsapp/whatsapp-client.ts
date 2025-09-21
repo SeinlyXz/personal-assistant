@@ -6,7 +6,7 @@ import makeWASocket, {
   proto,
   useMultiFileAuthState,
   type WAMessageKey,
-} from '@whiskeysockets/baileys'
+} from 'baileys'
 import {
   fetchLatestBaileysVersion,
   type WAConnectionState,
@@ -64,7 +64,7 @@ export class WhatsappClient {
         /** caching makes the store faster to send/recv messages */
         keys: makeCacheableSignalKeyStore(state.keys, logger),
       },
-      version,
+      version: [2, 3000, 1025190524], // Use a specific version to avoid breaking changes
       browser: ['Personal Assistant', 'binsarjr', '0.0.0'],
       logger: logger.child({ module: 'baileys' }),
       generateHighQualityLinkPreview: true,

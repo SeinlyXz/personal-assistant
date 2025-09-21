@@ -1,22 +1,22 @@
 import { ReadMoreUnicode } from '$infrastructure/config/consts.config';
 import {
-    downloadContentBufferFromMessage,
-    getMessageCaption,
+  downloadContentBufferFromMessage,
+  getMessageCaption,
 } from '$support/whatsapp.support';
 import {
-    getContentType,
-    isJidGroup,
-    isJidStatusBroadcast,
-    jidDecode,
-    proto,
-    type BaileysEventMap,
-    type WAMessage
-} from '@whiskeysockets/baileys';
+  getContentType,
+  isJidGroup,
+  isJidStatusBroadcast,
+  jidDecode,
+  proto,
+  type BaileysEventMap,
+  type WAMessage
+} from 'baileys';
 import {
-    Context,
-    OnEvent,
-    Socket,
-    type SocketClient,
+  Context,
+  OnEvent,
+  Socket,
+  type SocketClient,
 } from 'baileys-decorators';
 
 export class AntiDeletedMessageHandler {
@@ -64,7 +64,7 @@ export class AntiDeletedMessageHandler {
 
         response.push(
           'NoHP: ' +
-            jidDecode(message.key.participant || message.key.remoteJid!)?.user,
+          jidDecode(message.key.participant || message.key.remoteJid!)?.user,
         );
 
         const formatterDate = new Intl.DateTimeFormat('id', {
@@ -75,7 +75,7 @@ export class AntiDeletedMessageHandler {
         response.push(ReadMoreUnicode);
         response.push(
           'Waktu Dibuat: ' +
-            formatterDate.format(new Date(+message.messageTimestamp! * 1000)),
+          formatterDate.format(new Date(+message.messageTimestamp! * 1000)),
         );
         response.push('Waktu Dihapus: ' + formatterDate.format(new Date()));
 

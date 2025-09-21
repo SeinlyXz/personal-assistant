@@ -2,13 +2,13 @@ import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
 import { logger } from '$infrastructure/logger/console.logger';
 import { replaceRandomSpacesToUnicode } from '$support/string.support';
 import {
-    isJidGroup,
-    jidDecode,
-    jidNormalizedUser,
-    proto,
-    type MiscMessageGenerationOptions,
-    type WAMessage
-} from '@whiskeysockets/baileys';
+  isJidGroup,
+  jidDecode,
+  jidNormalizedUser,
+  proto,
+  type MiscMessageGenerationOptions,
+  type WAMessage
+} from 'baileys';
 import { Context, OnText, Socket, type SocketClient } from 'baileys-decorators';
 
 export class MentionHandler {
@@ -49,7 +49,7 @@ export class MentionHandler {
     {
       try {
         profilePic = await socket.profilePictureUrl(jid, 'preview');
-      } catch (error) {}
+      } catch (error) { }
     }
 
     const mentionedJid = await this.participants(socket, jid, type);
@@ -78,7 +78,7 @@ export class MentionHandler {
       {
         text: replaceRandomSpacesToUnicode(
           `PING (${type}) !!!\n\ncc: ` +
-            mentionedJid.map((jid) => '@' + jidDecode(jid)?.user).join(' '),
+          mentionedJid.map((jid) => '@' + jidDecode(jid)?.user).join(' '),
         ),
         mentions: mentionedJid,
         contextInfo: {

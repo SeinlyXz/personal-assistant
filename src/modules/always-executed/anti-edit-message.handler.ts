@@ -1,20 +1,20 @@
 import { ReadMoreUnicode } from '$infrastructure/config/consts.config';
 import { downloadContentBufferFromMessage } from '$support/whatsapp.support';
 import {
-    isJidGroup,
-    isJidStatusBroadcast,
-    jidDecode,
-    type BaileysEventMap,
-    type MiscMessageGenerationOptions,
-    type WAMessage,
-} from '@whiskeysockets/baileys';
+  isJidGroup,
+  isJidStatusBroadcast,
+  jidDecode,
+  type BaileysEventMap,
+  type MiscMessageGenerationOptions,
+  type WAMessage,
+} from 'baileys';
 import {
-    Context,
-    getContentType,
-    getMessageCaption,
-    OnEvent,
-    Socket,
-    type SocketClient,
+  Context,
+  getContentType,
+  getMessageCaption,
+  OnEvent,
+  Socket,
+  type SocketClient,
 } from 'baileys-decorators';
 
 export class AntiEditMessageAction {
@@ -56,8 +56,8 @@ export class AntiEditMessageAction {
 
           response.push(
             'NoHP: ' +
-              jidDecode(message.key.participant || message.key.remoteJid!)
-                ?.user,
+            jidDecode(message.key.participant || message.key.remoteJid!)
+              ?.user,
           );
 
           const formatterDate = new Intl.DateTimeFormat('id', {
@@ -68,13 +68,13 @@ export class AntiEditMessageAction {
           response.push(ReadMoreUnicode);
           response.push(
             'Waktu Dibuat: ' +
-              formatterDate.format(
-                new Date(
-                  // @ts-ignore
-                  +(message?.messageTimestamp?.low ||
-                    message?.messageTimestamp)! * 1000,
-                ),
+            formatterDate.format(
+              new Date(
+                // @ts-ignore
+                +(message?.messageTimestamp?.low ||
+                  message?.messageTimestamp)! * 1000,
               ),
+            ),
           );
           response.push('Waktu DiEdit: ' + formatterDate.format(new Date()));
 

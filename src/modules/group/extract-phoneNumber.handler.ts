@@ -1,7 +1,7 @@
 import { PREFIX_COMMAND } from '$infrastructure/config/consts.config';
 import {
-    type WAMessage
-} from '@whiskeysockets/baileys';
+  type WAMessage
+} from 'baileys';
 import { Context, OnText, Socket, type SocketClient } from 'baileys-decorators';
 
 export class ExtractPhoneNumberHandler {

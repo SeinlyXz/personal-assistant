@@ -6,7 +6,7 @@ import {
 	type MediaType,
 	type MessageType,
 	type proto,
-} from "@whiskeysockets/baileys";
+} from "baileys";
 
 export const getMessageCaption = (message: proto.IMessage) => {
 	if (!message) return "";

@@ -13,7 +13,7 @@ import {
   type GenerateContentCandidate,
   type Part,
 } from '@google/generative-ai';
-import { jidNormalizedUser, type WAMessage } from '@whiskeysockets/baileys';
+import { jidNormalizedUser, type WAMessage } from 'baileys';
 import {
   Context,
   createGuard,

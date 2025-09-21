@@ -1,7 +1,7 @@
 import makeOrderedDictionary from '$infrastructure/whatsapp/make-ordered-dictionary'
 import type KeyedDB from '@adiwajshing/keyed-db'
 import type { Comparable } from '@adiwajshing/keyed-db/lib/Types'
-import type makeWASocket from '@whiskeysockets/baileys'
+import type makeWASocket from 'baileys'
 import {
   DEFAULT_CONNECTION_CONFIG,
   jidDecode,
@@ -20,14 +20,14 @@ import {
   type WAMessage,
   type WAMessageCursor,
   type WAMessageKey,
-} from '@whiskeysockets/baileys'
-import { ObjectRepository } from '@whiskeysockets/baileys/lib/Store/object-repository'
-import type { Label } from '@whiskeysockets/baileys/lib/Types/Label'
+} from 'baileys'
+import { ObjectRepository } from 'baileys/lib/Store/object-repository'
+import type { Label } from 'baileys/lib/Types/Label'
 import {
   LabelAssociationType,
   type LabelAssociation,
   type MessageLabelAssociation,
-} from '@whiskeysockets/baileys/lib/Types/LabelAssociation'
+} from 'baileys/lib/Types/LabelAssociation'
 import type { Logger } from 'pino'
 
 type WASocket = ReturnType<typeof makeWASocket>;
@@ -69,7 +69,7 @@ export default (config: BaileysInMemoryStoreConfig) => {
     config.labelAssociationKey || waLabelAssociationKey;
   const logger: Logger =
     config.logger ||
-    DEFAULT_CONNECTION_CONFIG.logger.child({ stream: 'in-mem-store' });
+    (DEFAULT_CONNECTION_CONFIG.logger as Logger).child({ stream: 'in-mem-store' });
   const KeyedDB = require('@adiwajshing/keyed-db').default;
 
   const chats = new KeyedDB(chatKey, (c: any) => c.id) as KeyedDB<Chat, string>;
