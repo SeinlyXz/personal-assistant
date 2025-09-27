@@ -1,24 +1,24 @@
-import { logger } from '$infrastructure/logger/console.logger'
-import { hidden_path } from '$support/file.support'
+import { logger } from '$infrastructure/logger/console.logger';
+import { hidden_path } from '$support/file.support';
 import makeWASocket, {
   DisconnectReason,
   makeCacheableSignalKeyStore,
   proto,
   useMultiFileAuthState,
   type WAMessageKey,
-} from 'baileys'
+} from 'baileys';
 import {
   fetchLatestBaileysVersion,
   type WAConnectionState,
   type WASocket,
-} from 'baileys'
-import { BaileysDecorator, type SocketClient } from 'baileys-decorators'
-import NodeCache from 'node-cache'
-import { rm } from 'node:fs/promises'
+} from 'baileys';
+import { BaileysDecorator, type SocketClient } from 'baileys-decorators';
+import NodeCache from 'node-cache';
+import { rm } from 'node:fs/promises';
 // Tambahkan deklarasi module jika belum ada types
 // @ts-expect-error: no types for qrcode-terminal
-import qrcode from 'qrcode-terminal'
-import 'reflect-metadata'
+import qrcode from 'qrcode-terminal';
+import 'reflect-metadata';
 
 export class WhatsappClient {
   // @ts-expect-error: nullable
@@ -72,7 +72,7 @@ export class WhatsappClient {
       msgRetryCounterCache: this.msgRetryCounterCache,
       markOnlineOnConnect: false,
 
-      cachedGroupMetadata: async (jid) => this.groupCache.get(jid),
+      // cachedGroupMetadata: async (jid) => this.groupCache.get(jid),
       getMessage: async (key: WAMessageKey) => {
         // Removed useStore logic
         return proto.Message.fromObject({});
